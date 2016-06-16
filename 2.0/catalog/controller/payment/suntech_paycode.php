@@ -56,7 +56,8 @@ class ControllerPaymentSuntechPaycode extends Controller {
 		} else {
 			$payment_template = 'default';
 		}
-		$payment_template .= '/template/payment/suntech_paycode.tpl';
+		$payment_template .= (strpos(VERSION, '2.2.') !== false) ? '/payment/suntech_paycode.tpl' : '/template/payment/suntech_paycode.tpl';
+
 		
 		return $this->load->view($payment_template, $data);
 
@@ -158,8 +159,10 @@ class ControllerPaymentSuntechPaycode extends Controller {
                 $data['footer'] = $this->load->controller('common/footer');
                 $data['header'] = $this->load->controller('common/header');
 
-                if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/suntech_result.tpl')) {
-                        $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/payment/suntech_result.tpl', $data));
+                $payment_template .= (strpos(VERSION, '2.2.') !== false) ? '/payment/suntech_result.tpl' : '/template/payment/suntech_result.tpl';
+
+                if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . $payment_template)) {
+                        $this->response->setOutput($this->load->view($this->config->get('config_template') . $payment_template, $data));
                 } else {
                         $this->response->setOutput($this->load->view('default/template/payment/suntech_result.tpl', $data));
                 }
@@ -258,8 +261,8 @@ class ControllerPaymentSuntechPaycode extends Controller {
 		} else {
 			$payment_template = 'default';
 		}
-		$payment_template .= '/template/payment/suntech_empty.tpl';
-		
+		$payment_template .= (strpos(VERSION, '2.2.') !== false) ? '/payment/suntech_empty.tpl' : '/template/payment/suntech_empty.tpl';
+
 		return $this->response->setOutput($this->load->view($payment_template, $data));
 
 	

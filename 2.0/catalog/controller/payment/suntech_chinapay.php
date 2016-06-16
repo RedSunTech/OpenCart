@@ -52,7 +52,8 @@ class ControllerPaymentSuntechChinapay extends Controller {
 		} else {
 			$payment_template = 'default';
 		}
-		$payment_template .= '/template/payment/suntech_chinapay.tpl';
+		$payment_template .= (strpos(VERSION, '2.2.') !== false) ? '/payment/suntech_chinapay.tpl' : '/template/payment/suntech_chinapay.tpl';
+
 		
 		return $this->load->view($payment_template, $data);
 	}
@@ -155,7 +156,8 @@ class ControllerPaymentSuntechChinapay extends Controller {
 		} else {
 			$payment_template = 'default';
 		}
-		$payment_template .= '/template/payment/suntech_empty.tpl';
+		$payment_template .= (strpos(VERSION, '2.2.') !== false) ? '/payment/suntech_empty.tpl' : '/template/payment/suntech_empty.tpl';
+
 		
 		return $this->response->setOutput($this->load->view($payment_template, $data));
 
