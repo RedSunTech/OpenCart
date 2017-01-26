@@ -1,4 +1,4 @@
-#紅陽科技 OpenCart OpenCart V2.0~2.2 金流模組
+#紅陽科技 OpenCart V2.0~2.2 金流模組
 
 信用卡
 
