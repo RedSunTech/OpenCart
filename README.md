@@ -1,6 +1,6 @@
 #紅陽科技 OpenCart 金流模組 
 
-OpenCart V1.5.x / V2.0 ~ 2.2.x 模組
+OpenCart V1.5.x / V2.0 ~ 2.2.x / V2.3 模組
 
 
 信用卡（含分期付款，可超商取貨）
